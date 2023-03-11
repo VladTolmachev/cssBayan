@@ -10,6 +10,10 @@ body {
   font-size: 1rem;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   max-width: 80%;
   margin: 0 auto;
@@ -37,11 +41,47 @@ input[name='panel'] {
   display: none;
 }
 
-label {
-  display: block;
+.label__wrapper {
+  display: flex;
+  justify-content: space-between;
   padding: 1em 0;
 }
 
+label {
+  font-weight: 700;
+  position: relative;
+  display: block;
+}
+
+.plus {
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
 .meme__img {
-  max-width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 1.5em;
+  transition: all 0.4s ease-out;
+}
+
+input[name='panel']:checked ~ label .meme__img {
+  max-height: 100vh;
+}
+
+input[name='panel']:checked ~ label .label__wrapper .plus {
+  transform: rotate(316deg);
+}
+
+label:hover .meme__img {
+  max-height: 100vh;
+}
+
+@media (min-width: 821px) {
+  .accordion:hover .meme .label__wrapper .plus {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,105 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 2.5;
+  margin: 0;
+  border-bottom: 0.1em solid #000;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.meme {
+  border-bottom: 0.1em solid #000;
+}
+
+input[name='panel'] {
+  display: none;
+}
+
+.label__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+label {
+  font-weight: 700;
+  position: relative;
+  display: block;
+}
+
+.plus {
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.meme__img {
+  overflow: hidden;
+  max-height: 0;
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 1.5em;
+  transition: all 0.4s ease-out;
+}
+
+input[name='panel']:checked ~ label .meme__img {
+  max-height: 100vh;
+}
+
+input[name='panel']:checked ~ label .label__wrapper .plus {
+  transform: rotate(316deg);
+}
+
+@media (min-width: 820px) {
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .accordion:hover .meme .label__wrapper .plus {
+    opacity: 1;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  label:hover .meme__img {
+    max-height: 100vh;
+  }
+
+  label:hover .label__wrapper .plus {
+    transform: rotate(316deg);
+  }
+}

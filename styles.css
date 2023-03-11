@@ -26,7 +26,7 @@ h1 {
   font-size: 2em;
   line-height: 2.5;
   margin: 0;
-  border-bottom: 1px solid #000;
+  border-bottom: 0.1em solid #000;
 }
 
 .accordion {
@@ -34,7 +34,7 @@ h1 {
 }
 
 .meme {
-  border-bottom: 1px solid #000;
+  border-bottom: 0.1em solid #000;
 }
 
 input[name='panel'] {
@@ -76,12 +76,30 @@ input[name='panel']:checked ~ label .label__wrapper .plus {
   transform: rotate(316deg);
 }
 
-label:hover .meme__img {
-  max-height: 100vh;
+@media (min-width: 820px) {
+  body {
+    font-size: 1.1rem;
+  }
 }
 
-@media (min-width: 821px) {
+@media (min-width: 1920px) {
+  body {
+    font-size: 1.2rem;
+  }
+
   .accordion:hover .meme .label__wrapper .plus {
     opacity: 1;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  label:hover .meme__img {
+    max-height: 100vh;
+  }
+
+  label:hover .label__wrapper .plus {
+    transform: rotate(316deg);
   }
 }
